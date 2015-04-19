@@ -4,6 +4,8 @@ class todo-deploy {
 
 		command => "sh gradlew war",
 		cwd 	=> "${todo_app_loc}",
+		logoutput => "true",
+		creates	=> "${todo_war_loc}",
 		require => Common::File_download["Download Tomcat v 7.0.53"]
 
 	}
